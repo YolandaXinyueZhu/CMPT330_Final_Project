@@ -3,24 +3,19 @@
 import pygame
 import random
 
-# Initialize Pygame
 pygame.init()
 
-# Set up the window
 WINDOW_WIDTH = 640
 WINDOW_HEIGHT = 480
 window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption("Snake Game - Level 2: The Maze")
 
-# Set up the clock
 clock = pygame.time.Clock()
 
-# Set up the snake
 SNAKE_SIZE = 10
 snake = [(WINDOW_WIDTH // 2, WINDOW_HEIGHT // 2)]
 snake_direction = "right"
 
-# Set up the maze
 def create_maze():
     maze = []
     # Horizontal walls
@@ -38,7 +33,6 @@ maze = create_maze()
 maze_exit = (WINDOW_WIDTH - 2 * SNAKE_SIZE, WINDOW_HEIGHT // 2)
 
 
-# Set up the food
 def generate_food():
     while True:
         food_position = (random.randint(0, WINDOW_WIDTH // SNAKE_SIZE - 1) * SNAKE_SIZE,
@@ -48,12 +42,9 @@ def generate_food():
 
 food_position = generate_food()
 
-
-# Set up the score and required food items
 score = 0
 required_food_items = 5
 
-# Set up the game loop
 game_running = True
 while game_running:
     # Handle events
@@ -116,5 +107,4 @@ while game_running:
         # Set the game speed
         clock.tick(10)
 
-# Clean up Pygame
 pygame.quit()
